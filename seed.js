@@ -4,7 +4,7 @@ const books = require('./books')
 const stripe = Stripe('sk_test_51NckPADRvKSWj0Yhhiymvkx48pf7gNozmbsf89lyo7HeXaPMb84jHBpPO6ve234mjW6k84bhxPzeK7CKXHzjjSiX005d9E7Chi')
 
 const createBooks = async () => {
-  for(const book of books) {
+  for(const book of books.slice(7,8)) {
     await stripe.products.create({
       name: book.name,
       description: book.description,
