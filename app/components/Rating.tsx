@@ -37,7 +37,7 @@ function Rating({ rating, size }: { rating: number; size: string }) {
     return (
       <div className="flex items-center text-yellow-400 mt-0.5 mb-3 gap-x-[1.5px] text-xs">
         {Array.from({ length: Math.floor(rating) }).map((_, index) => (
-          <i className="fa-solid fa-star"></i>
+          <i className="fa-solid fa-star" key={index}></i>
         ))}
         {!Number.isInteger(+rating) ? (
           <>
