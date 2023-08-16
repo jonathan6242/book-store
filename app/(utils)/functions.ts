@@ -8,17 +8,18 @@ export const revalidate = 3600
 export const getBooksLimit = cache(async () => {
   const inventory = await stripe.products.list({
     expand: ['data.default_price'],
-    limit: 8
+    limit: 16
   },
   {
     apiKey: process.env.STRIPE_SECRET_KEY
   })
-  return inventory.data.sort((a: BookProduct, b: BookProduct) => a.created - b.created);
+  return inventory.data.sort((a: BookProduct, b: BookProduct) => a.created - b.created).slice(0,8);
 })
 
 export const getBooks = cache(async () => {
   const inventory = await stripe.products.list({
     expand: ['data.default_price'],
+    limit: 20
   },
   {
     apiKey: process.env.STRIPE_SECRET_KEY
@@ -40,6 +41,7 @@ export const getBook = cache(async (id: string) => {
 export const getRelatedBooks = cache(async (id: string) => {
   const inventory = await stripe.products.list({
     expand: ['data.default_price'],
+    limit: 20
   },
   {
     apiKey: process.env.STRIPE_SECRET_KEY
