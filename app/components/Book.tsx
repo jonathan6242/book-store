@@ -43,10 +43,6 @@ function Book({ book }: { book: BookProduct }) {
     })
   }
 
-  useEffect(() => {
-    console.log(book)
-  })
-
   return (
     <div className="flex flex-col gap-2">
       {/* Book Image */}

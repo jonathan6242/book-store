@@ -1,14 +1,89 @@
 module.exports = [
   {
     name: "How to Win Friends and Influence People",
-    price: 700,
+    price: 1000,
     currency: "AUD",
     image:
       "https://github.com/jonathan6242/book-store/blob/main/public/books/how-to-win-friends.jpg?raw=true",
     description: `For more than sixty years the rock-solid, time-tested advice in this book has carried thousands of now famous people up the ladder of success in their business and personal lives. The iconic bestseller. The world's benchmark business and personal development book. This book will help you solve one of the biggest problems you face: how to get along with and influence people in your daily business and social contacts. Since it was first published in 1936, Dale Carnegie's all-time classic has been translated into almost every known language and continues to help millions of readers around the world. How to Win Friends & Influence People can help you achieve these important goals: Get out of a mental rut, think new thoughts, acquire new visions, discover new ambitions; Make friends easily and quickly; Increase your popularity; Win people to your way of thinking; Increase your influence, your prestige, your ability to get things done; Handle complaints, avoid arguments; Become a better speaker and more entertaining conversationalist.`,
     author: "Dale Carnegie",
+    rating: 3.5,
+  },
+  {
+    name: "The Magic of Thinking Big",
+    price: 1300,
+    currency: "AUD",
+    image:
+      "https://github.com/jonathan6242/book-store/blob/main/public/books/magic-of-thinking-big.jpg?raw=true",
+    description: `The Magic of Thinking Big gives you useful methods, not empty promises. Dr. Schwartz presents a carefully designed program for getting the most out of your job, your marriage and family life, and your community. He proves that you don't need to be an intellectual or have innate talent to attain great success and satisfaction, but you do need to learn and understand the habit of thinking and behaving in ways that will get you there.`,
+    author: "David J. Schwartz",
+    rating: 4,
+    originalPrice: 1700
+  },
+  {
+    name: "Psycho-Cybernetics",
+    price: 3300,
+    currency: "AUD",
+    image:
+      "https://github.com/jonathan6242/book-store/blob/main/public/books/psycho-cybernetics.jpg?raw=true",
+    description: `Happiness and success are habits. So are failure and misery. But negative habits can be changed--and Psycho-Cybernetics shows you how! This is your personal audio guide to the amazing power of Psycho-Cybernetics--a program based on one of the world s classic self-help books, a multimillion-copy bestseller proven effective by readers worldwide. Presenting positive attitude as a means for change, Maltz s teaching has the ring of common sense. Psycho-Cybernetics-is the original text that defined the mind/body connection the concept that paved the way for most of today s personal empowerment programs. Turn crises into creative opportunities, dehypnotize yourself from false beliefs, and celebrate new freedom from fear and guilt. Testimonials and stories are interspersed with advice from Maltz, as well as techniques for relaxation and visualization. Dr. Maxwell Maltz teaches you his techniques of emotional surgery --the path to a dynamic new self-image and self-esteem and to achieving the success and happiness you deserve!`,
+    author: "Maxwell Maltz",
+    rating: 5,
+  },
+  {
+    name: "$100M Offers",
+    price: 4300,
+    currency: "AUD",
+    image:
+      "https://github.com/jonathan6242/book-store/blob/main/public/books/100m-offers.jpg?raw=true",
+    description: `I took home more in a year than the CEOs of McDonalds, IKEA, Ford, Motorola, and Yahoo….combined….as a kid in my twenties….using the $100M Offer method. It works. And it will work for you. Not that long ago though, my business had gotten so bad that I literally couldn’t even give my services away for free. At the end of each month, I would look at my bank account hoping to see progress (but there wasn’t). I knew something had to change...but what? Over the next 48 months, I went from losing money to making $36 for every $1 spent. In that time period, we generated over $120,000,000 across four different service, e-commerce, software, and brick & mortar. But, unlike everyone else, we didn’t have great funnels, great ads, or a wealthy niche. In fact, we didn’t even send emails until we had crossed $50M in sales(!). Instead, we were able to do this one thing really well….we created offers so good, people felt stupid saying no. Here’s exactly what this book will show you how to The methods contained within this book are so simple, so instantaneous, and so effective , it’s as if they work by magic. If you implement even one tactic in this book, you’ll see the change in your prospects' demeanor. And you’ll know the $100M Offer method worked when you start hearing “What do I need to do to move forward?” ...before you even ask for the sale.`,
+    author: "Alex Hormozi",
+    rating: 5,
+  },
+  {
+    name: "Man's Search For Meaning",
+    price: 1900,
+    currency: "AUD",
+    image:
+      "https://github.com/jonathan6242/book-store/blob/main/public/books/mans-search-for-meaning.jpg?raw=true",
+    description: `Psychiatrist Viktor Frankl's memoir has riveted generations of readers with its descriptions of life in Nazi death camps and its lessons for spiritual survival. Based on his own experience and the stories of his patients, Frankl argues that we cannot avoid suffering but we can choose how to cope with it, find meaning in it, and move forward with renewed purpose. At the heart of his theory, known as logotherapy, is a conviction that the primary human drive is not pleasure but the pursuit of what we find meaningful. Man's Search for Meaning has become one of the most influential books in America; it continues to inspire us all to find significance in the very act of living.`,
+    author: "Viktor E. Frankl",
+    rating: 4.5,
+    originalPrice: 4600
+  },
+  {
+    name: "Why We Sleep",
+    price: 1000,
+    currency: "AUD",
+    image:
+      "https://github.com/jonathan6242/book-store/blob/main/public/books/why-we-sleep.jpg?raw=true",
+    description: `Neuroscientist and sleep expert Matthew Walker provides a revolutionary exploration of sleep, examining how it affects every aspect of our physical and mental well-being. Charting the most cutting-edge scientific breakthroughs, and marshalling his decades of research and clinical practice, Walker explains how we can harness sleep to improve learning, mood and energy levels, regulate hormones, prevent cancer, Alzheimer's and diabetes, slow the effects of aging, and increase longevity. He also provides actionable steps towards getting a better night's sleep every night.`,
+    author: "Matthew Walker",
+    rating: 5,
+    originalPrice: 2000
+  },
+  {
+    name: "The Happiness Hypothesis",
+    price: 2500,
+    currency: "AUD",
+    image:
+      "https://github.com/jonathan6242/book-store/blob/main/public/books/happiness-hypothesis.jpg?raw=true",
+    description: `The Happiness Hypothesis is a book about ten Great Ideas. Each chapter is an attempt to savor one idea that has been discovered by several of the world's civilizations--to question it in light of what we now know from scientific research, and to extract from it the lessons that still apply to our modern lives and illuminate the causes of human flourishing. Award-winning psychologist Jonathan Haidt shows how a deeper understanding of the world's philosophical wisdom and its enduring maxims--like "do unto others as you would have others do unto you," or "what doesn't kill you makes you stronger"--can enrich and transform our lives.`,
+    author: "Jonathan Haidt",
     rating: 4,
   },
+  {
+    name: "The Almanack of Naval Ravikant",
+    price: 2200,
+    currency: "AUD",
+    image:
+      "https://github.com/jonathan6242/book-store/blob/main/public/books/almanack.jpg?raw=true",
+    description: `Getting rich is not just about luck; happiness is not just a trait we are born with. These aspirations may seem out of reach, but building wealth and being happy are skills we can learn. So what are these skills, and how do we learn them? What are the principles that should guide our efforts? What does progress really look like? Naval Ravikant is an entrepreneur, philosopher, and investor who has captivated the world with his principles for building wealth and creating long-term happiness. The Almanack of Naval Ravikant is a collection of Naval's wisdom and experience from the last ten years, shared as a curation of his most insightful interviews and poignant reflections. This isn't a how-to book, or a step-by-step gimmick. Instead, through Naval's own words, you will learn how to walk your own unique path toward a happier, wealthier life.`,
+    author: "Naval Ravikant",
+    rating: 4,
+    originalPrice: 3900
+  },
+
 ];
 
 const oldbooks = [
