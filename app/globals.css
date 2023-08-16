@@ -2,41 +2,77 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: 200 20% 98%;
-    --btn-background: 200 10% 91%;
-    --btn-background-hover: 200 10% 89%;
-    --foreground: 200 50% 3%;
+@layer components {
+  .row {
+    @apply w-full max-w-5xl mx-auto px-4 xs:px-6
   }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: 200 50% 3%;
-      --btn-background: 200 10% 9%;
-      --btn-background-hover: 200 10% 12%;
-      --foreground: 200 20% 96%;
-    }
+  .wrapper {
+    @apply py-10 xs:py-16
+  }
+  .section__title--wrapper {
+    @apply flex justify-center items-center overflow-hidden mb-8
+  }
+  .section__title {
+    @apply relative uppercase font-semibold text-sm sm:text-base lg:text-lg tracking-wide py-2 px-8 border after:absolute after:top-1/2 after:left-full after:w-full after:border-t after:mx-4 after:sm:mx-6 before:absolute before:top-1/2 before:right-full before:w-full before:border-t before:mx-4 before:sm:mx-6 after:max-w-[200px] before:max-w-[200px]
+   }
+  .bookmark {
+    @apply absolute top-0 right-3 w-10 h-20 bg-lime-500 vertical-rl grid place-items-center text-white text-sm font-medium tracking-wide uppercase before:absolute before:left-0 before:bottom-[-20px] before:w-0 before:h-0 before:border-[20px] before:border-transparent before:border-t-lime-500 before:border-l-lime-500 after:absolute after:right-0 after:bottom-[-20px] after:w-0 after:h-0 after:border-[20px] after:border-transparent after:border-t-lime-500 after:border-r-lime-500
+  }
+  .bookmark-lg {
+    @apply absolute top-0 right-6 w-16 h-32 bg-lime-500 vertical-rl grid place-items-center text-white text-xl font-medium tracking-wide uppercase before:absolute before:left-0 before:bottom-[-32px] before:w-0 before:h-0 before:border-[32px] before:border-transparent before:border-t-lime-500 before:border-l-lime-500 after:absolute after:right-0 after:bottom-[-32px] after:w-0 after:h-0 after:border-[32px] after:border-transparent after:border-t-lime-500 after:border-r-lime-500 z-10
+  }
+  .table__head {
+    @apply font-normal uppercase text-sm
+  }
+  .table__product {
+    @apply w-auto md:w-1/2
+  }
+  .table__quantity {
+    @apply sm:w-[24%] md:w-[16%] ml-auto md:ml-0 min-w-[128px]
+  }
+  .table__price {
+    @apply hidden md:flex ml-auto
+  }
+  .table__price, .table__subtotal {
+    @apply w-full max-w-[80px] md:max-w-[96px] lg:max-w-[108px]
+  }
+  .table__subtotal {
+    @apply text-right
   }
 }
 
-@layer base {
-  * {
-    @apply border-foreground/20;
+.vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+.pre-line {
+  white-space: pre-line;
+}
+
+.animated-bg {
+  background-image: linear-gradient(
+    to right,
+    #f3f4f6 0%,
+    #ebedf1 10%,
+    #f3f4f6 20%,
+    #f3f4f6 100%
+  );
+  background-size: 200% 100%;
+  animation: bgPos 1s linear infinite;
+}
+
+@keyframes bgPos {
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
   }
 }
 
-.animate-in {
-  animation: animateIn 0.3s ease 0.15s both;
-}
 
-@keyframes animateIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* html {
+  --scroll-behavior: smooth!important;
+  scroll-behavior: smooth!important;
+} */
