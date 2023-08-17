@@ -25,7 +25,7 @@ function Rating({ rating, size }: { rating: number; size: string }) {
         ) : (
           <>
             {Array.from({ length: 5 - Math.floor(rating) }).map((_, index) => (
-              <i className="fa-regular fa-star text-xs" key={index}></i>
+              <i className="fa-regular fa-star text-base" key={index}></i>
             ))}
           </>
         )}

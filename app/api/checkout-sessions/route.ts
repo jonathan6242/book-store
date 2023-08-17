@@ -11,6 +11,7 @@ export async function POST(request: Request) {
     // Get all products
     const inventory = await stripe.products.list({
       expand: ["data.default_price"],
+      limit: 16
     });
     const products = inventory.data.map((product: Product) => {
       const price = product.default_price;

@@ -39,18 +39,24 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className="!max-w-[100vw] !overflow-x-hidden">
       <Head>
         <title>Best Books</title>
       </Head>
-      <body className={inter.className}>
+      <body className={inter.className + " !max-w-[100vw] !overflow-x-hidden"}>
         <CartProvider {...cartProviderProps}>
           <div className="flex flex-col min-h-screen">
             <Navbar />
             <div className="flex-1">{children}</div>
             <Footer />
           </div>
-          <Toaster />
+          <Toaster
+            toastOptions={{
+              style: {
+                textAlign: 'center'
+              }
+            }}
+          />
         </CartProvider>
       </body>
       <Script src="https://unpkg.com/aos@2.3.1/dist/aos.js" />

@@ -5,39 +5,22 @@ import BookDescription from "./BookDescription";
 import Price from "./Price";
 import BookPageButtons from "./BookPageButtons";
 import Rating from "./Rating";
+import { HeartIcon } from "@heroicons/react/24/outline";
+import BookInfoImage from "./BookInfoImage";
 
 async function BookInfo({ id }: { id: string }) {
   const book = await getBook(id);
   const {
-    name,
     description,
-    id: productId,
     metadata: { author, rating },
   } = book;
-  const images = book?.images || [];
   const originalPrice = book.metadata?.originalPrice;
   const price = book.default_price.unit_amount;
-  const priceId = book.default_price.id;
 
   return (
     <div className="flex flex-col md:flex-row items-start gap-8 mb-16">
       {/* Book Image */}
-      <figure
-        className="relative w-full max-w-sm md:max-w-xs lg:max-w-sm shadow-lg flex-shrink-0"
-        data-aos="fade-right"
-        data-aos-delay="200"
-        data-aos-duration="800"
-      >
-        <Image
-          src={images[0]}
-          alt=""
-          width={0}
-          height={0}
-          sizes="100vw"
-          style={{ height: "auto", width: "100%" }}
-        />
-        {originalPrice && <div className="bookmark-lg">Sale!</div>}
-      </figure>
+      <BookInfoImage book={book} />
       {/* Book Description */}
       <div className="flex-grow flex flex-col md:w-1/2">
         {/* Title */}

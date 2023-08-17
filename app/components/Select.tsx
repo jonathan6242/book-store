@@ -11,9 +11,10 @@ function classNames(...classes: any) {
 interface Props {
   books: BookProduct[];
   setBooks: Function;
+  setCurrentPage: Function
 }
 
-export default function Select({ books, setBooks }: Props) {
+export default function Select({ books, setBooks, setCurrentPage }: Props) {
   const [filter, setFilter] = useState("");
 
   function filterText(value: string): string | undefined {
@@ -31,11 +32,13 @@ export default function Select({ books, setBooks }: Props) {
 
   function onFilterChange(filter: string) {
     setFilter(filter);
+    setCurrentPage(1);
     switch (filter) {
       case "lowToHigh":
         setBooks(
           books
             .slice()
+            .sort((a, b) => a.created - b.created)
             .sort(
               (a, b) =>
                 a.default_price.unit_amount - b.default_price.unit_amount
@@ -46,6 +49,7 @@ export default function Select({ books, setBooks }: Props) {
         setBooks(
           books
             .slice()
+            .sort((a, b) => a.created - b.created)
             .sort(
               (a, b) =>
                 b.default_price.unit_amount - a.default_price.unit_amount
@@ -56,6 +60,7 @@ export default function Select({ books, setBooks }: Props) {
         setBooks(
           books
             .slice()
+            .sort((a, b) => a.created - b.created)
             .sort(
               (a, b) =>
                 (+b.metadata.rating) - (+a.metadata.rating)
@@ -72,7 +77,7 @@ export default function Select({ books, setBooks }: Props) {
       {({ open }) => (
         <>
           <div className="relative">
-            <Listbox.Button className="relative w-56 cursor-default bg-white py-2 pl-3 pr-10 text-left text-gray-900 border focus:outline-none sm:text-sm sm:leading-6">
+            <Listbox.Button className="relative w-full sm:w-56 cursor-default bg-white py-2 pl-3 pr-10 text-left text-gray-900 border focus:outline-none text-sm leading-6">
               <span className="flex items-center">
                 <span className="ml-3 block truncate">
                   {filterText(filter)}
@@ -85,12 +90,12 @@ export default function Select({ books, setBooks }: Props) {
                 />
               </span>
             </Listbox.Button>
-            <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto bg-white text-base border focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute z-10 mt-1 max-h-56 w-full overflow-auto bg-white border focus:outline-none text-sm">
               <Listbox.Option
                 className={({ active }) =>
                   classNames(
                     active ? "bg-lime-500 text-white" : "text-gray-900",
-                    "relative cursor-default select-none py-2 pl-3 pr-9 sm:leading-6"
+                    "relative cursor-default select-none py-2 pl-3 pr-9 leading-6"
                   )
                 }
                 value="lowToHigh"
@@ -120,7 +125,7 @@ export default function Select({ books, setBooks }: Props) {
                 className={({ active }) =>
                   classNames(
                     active ? "bg-lime-500 text-white" : "text-gray-900",
-                    "relative cursor-default select-none py-2 pl-3 pr-9 sm:leading-6"
+                    "relative cursor-default select-none py-2 pl-3 pr-9 leading-6"
                   )
                 }
                 value="highToLow"
@@ -150,7 +155,7 @@ export default function Select({ books, setBooks }: Props) {
                 className={({ active }) =>
                   classNames(
                     active ? "bg-lime-500 text-white" : "text-gray-900",
-                    "relative cursor-default select-none py-2 pl-3 pr-9 sm:leading-6"
+                    "relative cursor-default select-none py-2 pl-3 pr-9 leading-6"
                   )
                 }
                 value="rating"

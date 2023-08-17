@@ -5,6 +5,7 @@ import Landing from "./components/Landing";
 import HomeBooks from "./components/HomeBooks";
 import { Suspense } from "react";
 import HomeBooksSkeleton from "./components/(skeletons)/HomeBooksSkeleton";
+import Testimonials from "./components/Testimonials";
 
 export default async function HomePage() {
   return (
@@ -13,14 +14,14 @@ export default async function HomePage() {
       <section id="books">
         <div className="row wrapper">
           <div className="section__title--wrapper">
-            <span className="section__title">Featured books</span>
+            <span className="section__title">Latest Books</span>
           </div>
           <Suspense fallback={<HomeBooksSkeleton />}>
             <HomeBooks />
           </Suspense>
         </div>
       </section>
-      
+      <Testimonials />
     </div>
   );
 }

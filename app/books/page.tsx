@@ -4,8 +4,8 @@ import BookListSkeleton from "../components/(skeletons)/BookListSkeleton"
 
 function BooksPageLoader() {
   return (
-    <Suspense fallback={<BookListSkeleton />}>
-      <BooksPage />
+    <Suspense fallback={<BookListSkeleton name="All Books" />}>
+      <BooksPage name="All Books" />
     </Suspense>
   )
 }
