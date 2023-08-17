@@ -10,18 +10,13 @@ import Price from "@/app/components/Price";
 import RecommendedBooks from "@/app/components/RecommendedBooks";
 import RecommendedBooksSkeleton from "@/app/components/(skeletons)/RecommendedBooksSkeleton";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import { Suspense } from "react";
+import Reviews from "@/app/components/Reviews";
 
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
 
 async function BookPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  const supabase = createServerComponentClient({ cookies });
-  let response = await supabase.from("reviews").select().eq("product_id", id);
-  const data = response.data as any[]
-
-  console.log(data)
 
   return (
     <div className="row wrapper">
@@ -31,11 +26,9 @@ async function BookPage({ params }: { params: { id: string } }) {
       <Suspense fallback={<RecommendedBooksSkeleton />}>
         <RecommendedBooks id={id} />
       </Suspense>
-      {
-        data.map((review) => (
-          <li key={review.id}>{review.review}</li>
-        ))
-      }
+      <Suspense fallback={<div>Loading...</div>}>
+        <Reviews id={id} />
+      </Suspense>
     </div>
   );
 }
