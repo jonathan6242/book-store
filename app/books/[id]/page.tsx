@@ -13,6 +13,8 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { Suspense } from "react";
 
+export const dynamic = 'force-dynamic'
+
 async function BookPage({ params }: { params: { id: string } }) {
   const { id } = params;
   const supabase = createServerComponentClient({ cookies });
