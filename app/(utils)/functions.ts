@@ -1,6 +1,8 @@
 import { ReactNode, cache } from 'react'
 import stripe from './stripe'
 import { BookProduct } from './types'
+import { cookies } from 'next/headers'
+
  
 export const revalidate = 3600
 // await new Promise((res) => setTimeout(res, 2000))
@@ -48,3 +50,4 @@ export const getRelatedBooks = cache(async (id: string) => {
   })
   return inventory.data.filter((book: BookProduct) => book.id !== id).sort((a: BookProduct, b: BookProduct) => b.metadata.rating - a.metadata.rating).slice(0, 4);
 })
+
