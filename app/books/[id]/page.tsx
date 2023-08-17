@@ -26,9 +26,9 @@ async function BookPage({ params }: { params: { id: string } }) {
       <Suspense fallback={<RecommendedBooksSkeleton />}>
         <RecommendedBooks id={id} />
       </Suspense>
-      {/* <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Loading...</div>}>
         <Reviews id={id} />
-      </Suspense> */}
+      </Suspense>
     </div>
   );
 }
