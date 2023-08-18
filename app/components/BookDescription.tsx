@@ -22,10 +22,13 @@ function BookDescription({
     descriptionRef?.current?.offsetHeight
   );
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
   const onResize = () => {
     if (
-      descriptionRef?.current?.scrollHeight! <=
-      descriptionRef?.current?.offsetHeight!
+      !isMobile &&
+      (descriptionRef?.current?.scrollHeight! <=
+      descriptionRef?.current?.offsetHeight!)
     ) {
       setShowMore(false);
     }
