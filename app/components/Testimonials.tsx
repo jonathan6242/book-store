@@ -74,6 +74,7 @@ function Testimonials() {
         id="myId"
         onScroll={() => handleScroll()}
         onClick={stopAutoplay}
+        onTouchStart={stopAutoplay}
       >
         {/* First */}
         <div className="flex flex-col text-center flex-shrink-0 w-full max-w-5xl snap-start">
