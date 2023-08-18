@@ -51,3 +51,15 @@ export const getRelatedBooks = cache(async (id: string) => {
   return inventory.data.filter((book: BookProduct) => book.id !== id).sort((a: BookProduct, b: BookProduct) => b.metadata.rating - a.metadata.rating).slice(0, 4);
 })
 
+export const getDiscountedBooks = cache(async () => {
+  const inventory = await stripe.products.list({
+    expand: ['data.default_price'],
+    limit: 16
+  },
+  {
+    apiKey: process.env.STRIPE_SECRET_KEY
+  })
+  return inventory.data.filter((book: BookProduct) => book.metadata.originalPrice).sort((a: BookProduct, b: BookProduct) => b.created - a.created).slice(0,4);
+})
+
+

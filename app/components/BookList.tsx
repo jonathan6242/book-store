@@ -9,11 +9,11 @@ import Link from "next/link";
 function BookList({
   books: initialBooks,
   name,
-  removeBook
+  removeBook,
 }: {
   books: BookProduct[];
   name: string;
-  removeBook?: Function
+  removeBook?: Function;
 }) {
   const [books, setBooks] = useState<BookProduct[]>(initialBooks);
   const booksPerPage = 8;
@@ -22,9 +22,9 @@ function BookList({
 
   useEffect(() => {
     setBooks(initialBooks);
-  }, [initialBooks])
+  }, [initialBooks]);
 
-  if(!books.length && name === "Wishlist") {
+  if (!!books && !books.length && name === "Wishlist") {
     return (
       <div className="row py-16 flex flex-col">
         <div className="section__title--wrapper">
@@ -43,7 +43,7 @@ function BookList({
           </Link>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -57,15 +57,23 @@ function BookList({
           Showing{" "}
           <span className="font-medium">
             {booksPerPage * (currentPage - 1) + 1}
-          </span>
-          {" "}to{" "}<span className="font-medium">
-            {Math.min(booksPerPage * currentPage, books.length)}
-          </span> of{" "}
-          <span className="font-medium">{Math.min(totalPages * booksPerPage, books.length)}</span>{" "}
+          </span>{" "}
+          to{" "}
+          <span className="font-medium">
+            {Math.min(booksPerPage * currentPage, books?.length) || 0}
+          </span>{" "}
+          of{" "}
+          <span className="font-medium">
+            {Math.min(totalPages * booksPerPage, books?.length) || 0}
+          </span>{" "}
           results
         </div>
         {/* Select Menu */}
-        <Select books={books} setBooks={setBooks} setCurrentPage={setCurrentPage} />
+        <Select
+          books={books}
+          setBooks={setBooks}
+          setCurrentPage={setCurrentPage}
+        />
       </header>
       <div className="grid gap-4 lg:gap-8 grid-cols-1 xxs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 mb-8">
         {books

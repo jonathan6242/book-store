@@ -1,4 +1,4 @@
-import { getBook } from "../(utils)/functions"
+import { getBook } from "../(utils)/functions";
 import BookDescription from "./BookDescription";
 import BookInfoImage from "./BookInfoImage";
 import BookPageButtons from "./BookPageButtons";
@@ -24,14 +24,12 @@ async function SelectedBook({ id }: { id: string }) {
           {/* Description */}
           <BookDescription description={description} selected />
           {/* Price */}
-          <div className="text-2xl">
-            ${(price / 100).toFixed(2)}
-          </div>
+          <div className="text-2xl">${(price / 100).toFixed(2)}</div>
           {/* Buttons */}
           <BookPageButtons book={book} selected />
         </div>
       </div>
     </div>
-  )
+  );
 }
-export default SelectedBook
+export default SelectedBook;

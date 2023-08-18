@@ -11,7 +11,7 @@ function BookDescription({
   selected,
 }: {
   description: string;
-  selected: boolean;
+  selected?: boolean;
 }) {
   const [showMore, setShowMore] = useState(false);
   const descriptionRef = useRef<HTMLParagraphElement>(null);

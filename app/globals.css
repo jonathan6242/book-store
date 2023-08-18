@@ -7,7 +7,7 @@
     @apply w-full max-w-5xl mx-auto px-4 xs:px-6
   }
   .wrapper {
-    @apply py-10 xs:py-16
+    @apply py-12 xs:py-16
   }
   .section__title--wrapper {
     @apply flex justify-center items-center overflow-hidden mb-8
@@ -71,6 +71,9 @@
   }
 }
 
+button:focus {
+  outline: none !important;
+}
 
 /* html {
   --scroll-behavior: smooth!important;

@@ -5,13 +5,13 @@ import BookList from "../BookList";
 import { BookProduct } from "@/app/(utils)/types";
 import BookListSkeleton from "../(skeletons)/BookListSkeleton";
 
-function Wishlist({ books }: { books: BookProduct[] }) {
-  const [wishlistBooks, setWishlistBooks] = useState<BookProduct[]>(
-    []
+function Wishlist({ books }: { books: BookProduct[] | null }) {
+  const [wishlistBooks, setWishlistBooks] = useState<BookProduct[] | null>(
+    null
   );
 
   function removeBook(productId: string) {
-    setWishlistBooks(prev => prev.filter(book => book.id !== productId));
+    setWishlistBooks(prev => prev!.filter(book => book.id !== productId));
   }
 
   useEffect(() => {
@@ -22,13 +22,17 @@ function Wishlist({ books }: { books: BookProduct[] }) {
       } else {
         wishlist = [];
       }
-      setWishlistBooks(books.slice().filter((book) => wishlist.includes(book.id)));
+      setWishlistBooks(books!.slice().filter((book) => wishlist.includes(book.id)));
     }
     if(books) {
       main();
     }
   }, [books]);
 
-  return <BookList books={wishlistBooks} name="Wishlist" removeBook={removeBook} />;
+  if(!books) {
+    return <BookListSkeleton name="Wishlist" />
+  }
+
+  return <BookList books={wishlistBooks!} name="Wishlist" removeBook={removeBook} />;
 }
 export default Wishlist;

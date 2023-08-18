@@ -28,7 +28,6 @@ async function BookInfo({ id }: { id: string }) {
         {/* Author */}
         <div className="text-xl mb-2">{author}</div>
         {/* Rating */}
-
         <Rating rating={rating} size="large" />
         {/* Description */}
         <BookDescription description={description} />

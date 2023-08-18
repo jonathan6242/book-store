@@ -18,11 +18,12 @@ const config: Config = {
       },
       colors: {
         dark: '#242424',
-        lightgray: 'rgba(255,255,255,0.8)'
+        lightgray: 'rgba(255,255,255,0.9)'
       }
     },
   },
   plugins: [
+    require('tailwind-scrollbar-hide')
   ],
 }
 export default config

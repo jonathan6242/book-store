@@ -49,7 +49,7 @@ function BookInfoImage({ book, selected } : { book: BookProduct, selected?: bool
   return (
     <figure
       className={`relative w-full ${!selected ? 'max-w-sm md:max-w-xs' : 'xs:max-w-xs'}  lg:max-w-sm shadow-lg flex-shrink-0`}
-      data-aos="fade-right"
+      data-aos={`${!selected ? 'fade-right' : ''}`}
       data-aos-delay="200"
       data-aos-duration="800"
       data-aos-once={true}
