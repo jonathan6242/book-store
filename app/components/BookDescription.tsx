@@ -43,14 +43,7 @@ function BookDescription({
 
   return (
     <>
-      {
-        selected && (
-          <div className="leading-loose mb-6 text-lightgray md:hidden">
-            {description}
-          </div>
-        )
-      }
-      <div className={`leading-loose mb-6 ${selected ? 'hidden md:block' : ''}`}>
+      <div className={`leading-loose mb-6`}>
         <p
           className={`${
             !showMore ? `${selected ? "line-clamp-6" : "line-clamp-4"}` : ""
