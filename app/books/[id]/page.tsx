@@ -12,6 +12,7 @@ import RecommendedBooksSkeleton from "@/app/components/(skeletons)/RecommendedBo
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Suspense } from "react";
 import Reviews from "@/app/components/Reviews";
+import ReviewForm from "@/app/components/ReviewForm";
 
 // export const dynamic = 'force-dynamic'
 
@@ -29,6 +30,7 @@ async function BookPage({ params }: { params: { id: string } }) {
       {/* <Suspense fallback={<div>Loading...</div>}>
         <Reviews id={id} />
       </Suspense> */}
+      {/* <ReviewForm /> */}
     </div>
   );
 }

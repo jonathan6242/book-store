@@ -104,7 +104,9 @@ function CartPage() {
           {/* TOTAL */}
           <div className="py-5 flex justify-between font-semibold">
             <div className="uppercase text-sm">Total</div>
-            <div className="text-lg">{formattedTotalPrice?.slice(2)}</div>
+            <div className="text-lg">
+              ${((totalPrice!) / 100).toFixed(2)}
+            </div>
           </div>
           <div className="py-5">
             <button
