@@ -4,7 +4,7 @@ import { BookProduct } from "../(utils)/types"
 import Image from "next/image"
 import { toast } from "react-hot-toast";
 
-function BookInfoImage({ book } : { book: BookProduct }) {
+function BookInfoImage({ book, selected } : { book: BookProduct, selected?: boolean }) {
   const originalPrice = book.metadata?.originalPrice;
   const images = book?.images || [];
   const { name, id: productId } = book;
@@ -48,10 +48,11 @@ function BookInfoImage({ book } : { book: BookProduct }) {
 
   return (
     <figure
-      className="relative w-full max-w-sm md:max-w-xs lg:max-w-sm shadow-lg flex-shrink-0"
+      className={`relative w-full ${!selected ? 'max-w-sm md:max-w-xs' : 'xs:max-w-xs'}  lg:max-w-sm shadow-lg flex-shrink-0`}
       data-aos="fade-right"
       data-aos-delay="200"
       data-aos-duration="800"
+      data-aos-once={true}
     >
       <Image
         src={images[0]}
