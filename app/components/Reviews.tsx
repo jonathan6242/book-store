@@ -54,6 +54,8 @@ function Reviews({ reviews: serverReviews }: { reviews: ReviewType[] }) {
       {reviews.length ? (
         <div className="flex flex-col gap-8">
           {reviews
+            .slice()
+            .sort((a: ReviewType, b: ReviewType) => b.date - a.date)
             .map((review, index) => (
               <Review review={review} key={index} />
             ))}
