@@ -9,18 +9,13 @@ import Reviews from "@/app/components/Reviews";
 import ReviewForm from "@/app/components/ReviewForm";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers"
+import ReviewsLoader from "@/app/components/ReviewsLoader";
 
 async function BookPage({ params }: { params: { id: string } }) {
-  const cookieStore = cookies();
-  const supabase = createServerComponentClient({
-    cookies: () => cookieStore
-  })
   const { id } = params;
-  const { data, count }: { data: any[] | null, count: any } = await supabase.from("reviews").select("*", { count: "exact" }).eq("product_id", id).order('date', { ascending: false });
 
   return (
     <div className="row wrapper">
-      <div className="hidden">{count}</div>
       <Suspense fallback={<BookPageSkeleton />}>
         <BookInfo id={id} />
       </Suspense>
@@ -28,7 +23,7 @@ async function BookPage({ params }: { params: { id: string } }) {
         <RecommendedBooks id={id} />
       </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
-        <Reviews reviews={data ?? []} />
+        <ReviewsLoader id={id} />
       </Suspense>
       <ReviewForm />
     </div>
