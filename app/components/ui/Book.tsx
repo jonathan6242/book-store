@@ -12,6 +12,7 @@ import { toast } from "react-hot-toast";
 import { useShoppingCart } from "use-shopping-cart";
 import { useEffect, useState } from "react";
 import Rating from "./Rating";
+import { useRatingStore } from "@/app/(utils)/ratingStore";
 
 function Book({ book, removeBook }: { book: BookProduct, removeBook?: Function }) {
   const { addItem } = useShoppingCart();
@@ -26,6 +27,7 @@ function Book({ book, removeBook }: { book: BookProduct, removeBook?: Function }
   const priceId = book.default_price.id;
   const [inWishlist, setInWishlist] = useState(false);
   const [cooldown, setCooldown] = useState(false);
+  const setRating = useRatingStore((state: any) => state.setRating);
 
   const addToCart = (e: any) => {
     e.preventDefault();
@@ -95,6 +97,7 @@ function Book({ book, removeBook }: { book: BookProduct, removeBook?: Function }
       <Link
         href={`/books/${productId}`}
         className="relative w-full pb-[150%] mb-1 shadow hover:shadow-lg duration-200 group"
+        onClick={() => setRating(0)}
       >
         <Image
           src={images[0]}
