@@ -1,9 +1,9 @@
 import { getBook } from "../(utils)/functions";
-import BookDescription from "./BookDescription";
+import BookDescription from "./ui/BookDescription";
 import BookInfoImage from "./BookInfoImage";
-import BookPageButtons from "./BookPageButtons";
-import Price from "./Price";
-import Rating from "./Rating";
+import BookPageButtons from "./ui/BookPageButtons";
+import Price from "./ui/Price";
+import Rating from "./ui/Rating";
 
 async function SelectedBook({ id }: { id: string }) {
   const book = await getBook(id);

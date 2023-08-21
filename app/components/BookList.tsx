@@ -1,9 +1,9 @@
 "use client";
 import { useEffect, useState } from "react";
 import { BookProduct } from "../(utils)/types";
-import Book from "./Book";
+import Book from "./ui/Book";
 import Select from "./Select";
-import Pagination from "./Pagination";
+import Pagination from "./ui/Pagination";
 import Link from "next/link";
 
 function BookList({

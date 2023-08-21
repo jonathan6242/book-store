@@ -71,7 +71,9 @@
   }
 }
 
-button:focus {
+button:focus,
+textarea:focus,
+input:focus {
   outline: none !important;
 }
 

@@ -1,6 +1,6 @@
 import { getBooksLimit } from "@/app/(utils)/functions";
 import { BookProduct } from "@/app/(utils)/types";
-import Book from "./components/Book";
+import Book from "./components/ui/Book";
 import Landing from "./components/Landing";
 import HomeBooks from "./components/HomeBooks";
 import { Suspense } from "react";
@@ -8,7 +8,10 @@ import HomeBooksSkeleton from "./components/(skeletons)/HomeBooksSkeleton";
 import Testimonials from "./components/Testimonials";
 import SelectedBook from "./components/SelectedBook";
 
+export const dynamic = 'force-dynamic';
+
 export default async function HomePage() {
+
   return (
     <div>
       <Landing />

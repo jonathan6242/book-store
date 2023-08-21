@@ -1,6 +1,6 @@
 "use client";
 import { useShoppingCart } from "use-shopping-cart";
-import CartProduct from "../components/CartProduct";
+import CartProduct from "../components/ui/CartProduct";
 import Link from "next/link";
 import axios from "axios";
 import { useState } from "react";

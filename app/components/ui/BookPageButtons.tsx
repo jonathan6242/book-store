@@ -2,7 +2,7 @@
 import { useShoppingCart } from "use-shopping-cart";
 import { MinusSmallIcon, PlusSmallIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
-import { BookProduct } from "../(utils)/types";
+import { BookProduct } from "../../(utils)/types";
 import { toast } from "react-hot-toast";
 
 function BookPageButtons({

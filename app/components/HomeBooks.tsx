@@ -1,6 +1,8 @@
 import { getBooksLimit, getDiscountedBooks } from "../(utils)/functions";
 import { BookProduct } from "../(utils)/types";
-import Book from "./Book";
+import Book from "./ui/Book";
+
+export const dynamic = 'force-dynamic';
 
 async function HomeBooks({ discounted }: { discounted?: boolean }) {
   let books;

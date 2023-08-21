@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { BookProduct } from "../(utils)/types";
+import { BookProduct } from "../../(utils)/types";
 import {
   HeartIcon,
   ShoppingCartIcon,
