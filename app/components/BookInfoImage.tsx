@@ -45,7 +45,7 @@ function BookInfoImage({
       });
       setTimeout(() => {
         setCooldown(false);
-      }, 2000);
+      }, 1000);
     }
   };
 

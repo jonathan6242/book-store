@@ -25,6 +25,7 @@ function Book({ book, removeBook }: { book: BookProduct, removeBook?: Function }
   const price = book.default_price.unit_amount;
   const priceId = book.default_price.id;
   const [inWishlist, setInWishlist] = useState(false);
+  const [cooldown, setCooldown] = useState(false);
 
   const addToCart = (e: any) => {
     e.preventDefault();
@@ -47,33 +48,36 @@ function Book({ book, removeBook }: { book: BookProduct, removeBook?: Function }
     });
   };
 
-  const toggleWishlist = (e: any) => {
+  const toggleWishlist = async (e: any) => {
     e.preventDefault();
-    let wishlist;
-    let message: string = '';
-    if (localStorage.getItem("wishlist")) {
-      wishlist = JSON.parse(localStorage.getItem("wishlist")!);
-      if(wishlist.includes(productId)) {
-        wishlist = wishlist.filter((elem: string) => elem !== productId);
-        setInWishlist(false);
-        message = `${name} removed from wishlist`
-        if(removeBook) {
-          removeBook(productId);
+    if (!cooldown) {
+      setCooldown(true);
+      let wishlist;
+      let message: string = "";
+      if (localStorage.getItem("wishlist")) {
+        wishlist = JSON.parse(localStorage.getItem("wishlist")!);
+        if (wishlist.includes(productId)) {
+          wishlist = wishlist.filter((elem: string) => elem !== productId);
+          setInWishlist(false);
+          message = `${name} removed from wishlist`;
+        } else {
+          wishlist.push(productId);
+          setInWishlist(true);
+          message = `${name} added to wishlist`;
         }
       } else {
-        wishlist.push(productId);
+        wishlist = [productId];
         setInWishlist(true);
-        message = `${name} added to wishlist`
+        message = `${name} added to wishlist`;
       }
-    } else {
-      wishlist = [productId];
-      setInWishlist(true);
-      message = `${name} added to wishlist`
+      localStorage.setItem("wishlist", JSON.stringify(wishlist));
+      toast.success(message, {
+        position: "bottom-center",
+      });
+      setTimeout(() => {
+        setCooldown(false);
+      }, 1000);
     }
-    localStorage.setItem("wishlist", JSON.stringify(wishlist));
-    toast.success(message, {
-      position: "bottom-center",
-    });
   };
 
   useEffect(() => {
