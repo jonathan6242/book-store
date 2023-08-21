@@ -7,15 +7,15 @@ function DynamicRating() {
 
   return (
     <>
-      {rating ? (
+      {rating !== -1 ? (
         <Rating
           rating={
-            rating
+            (rating || 0)
           }
           size="large"
         />
       ) : (
-        <Rating rating={0} size="large" />
+        <div className="h-4 w-24 mb-6 animated-bg"></div>
       )}
     </>
   );

@@ -97,7 +97,7 @@ function Book({ book, removeBook }: { book: BookProduct, removeBook?: Function }
       <Link
         href={`/books/${productId}`}
         className="relative w-full pb-[150%] mb-1 shadow hover:shadow-lg duration-200 group"
-        onClick={() => setRating(0)}
+        onClick={() => setRating(-1)}
       >
         <Image
           src={images[0]}
