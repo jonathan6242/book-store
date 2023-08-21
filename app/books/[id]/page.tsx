@@ -28,7 +28,7 @@ async function BookPage({ params }: { params: { id: string } }) {
         <RecommendedBooks id={id} />
       </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
-        <Reviews reviews={data ?? []} />
+        <ReviewsLoader id={id} />
       </Suspense>
       <ReviewForm />
     </div>
