@@ -16,8 +16,8 @@ function Reviews({ reviews: serverReviews }: { reviews: ReviewType[] }) {
   useEffect(() => {
     async function updateRating() {
       const newRating = reviews?.reduce((acc, curr) => acc + +curr.rating, 0) / reviews!.length
-      fetch(`/api/update?productId=${productId}&rating=${newRating}`);
       setRating(newRating);
+      fetch(`/api/update?productId=${productId}&rating=${newRating}`);
       router.refresh();
     }
     updateRating();
