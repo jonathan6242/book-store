@@ -17,6 +17,7 @@ function Reviews({ reviews: serverReviews }: { reviews: ReviewType[] }) {
     async function updateRating() {
       const newRating = reviews?.reduce((acc, curr) => acc + +curr.rating, 0) / reviews!.length
       fetch(`/api/update?productId=${productId}&rating=${newRating}`);
+      setRating(newRating);
       router.refresh();
     }
     updateRating();
@@ -34,7 +35,6 @@ function Reviews({ reviews: serverReviews }: { reviews: ReviewType[] }) {
         },
         (payload) => {
           setReviews((prev) => [...prev, payload.new as ReviewType]);
-      
         }
       )
       .subscribe();

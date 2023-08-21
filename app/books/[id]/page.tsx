@@ -13,6 +13,11 @@ import ReviewsLoader from "@/app/components/ReviewsLoader";
 
 async function BookPage({ params }: { params: { id: string } }) {
   const { id } = params;
+  const cookieStore = cookies();
+  const supabase = createServerComponentClient({
+    cookies: () => cookieStore
+  })
+  const { data, count }: { data: any[] | null, count: any } = await supabase.from("reviews").select("*", { count: "exact" }).eq("product_id", id).order('date', { ascending: false });
 
   return (
     <div className="row wrapper">
@@ -23,7 +28,7 @@ async function BookPage({ params }: { params: { id: string } }) {
         <RecommendedBooks id={id} />
       </Suspense>
       <Suspense fallback={<div>Loading...</div>}>
-        <ReviewsLoader id={id} />
+        <Reviews reviews={data ?? []} />
       </Suspense>
       <ReviewForm />
     </div>
