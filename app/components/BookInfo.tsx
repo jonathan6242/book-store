@@ -1,17 +1,10 @@
 import Image from "next/image";
 import { getBook } from "../(utils)/functions";
-import { StarIcon } from "@heroicons/react/24/solid";
 import BookDescription from "./ui/BookDescription";
 import Price from "./ui/Price";
 import BookPageButtons from "./ui/BookPageButtons";
-import Rating from "./ui/Rating";
-import { HeartIcon } from "@heroicons/react/24/outline";
 import BookInfoImage from "./BookInfoImage";
 import DynamicRating from "./DynamicRating";
-import { ReviewType } from "../(utils)/types";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { useRatingStore } from "../(utils)/ratingStore";
 
 async function BookInfo({ id }: { id: string }) {
   const book = await getBook(id);

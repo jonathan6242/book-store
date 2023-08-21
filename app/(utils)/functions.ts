@@ -1,11 +1,10 @@
 import stripe from './stripe'
 import { BookProduct } from './types'
-import { cookies } from 'next/headers'
-import { createServerComponentClient } from '@supabase/auth-helpers-nextjs'
+import { cache } from "react"
 
-export const revalidate = 0
+export const revalidate = 3600
  
-export const getBooksLimit = async () => {
+export const getBooksLimit = cache(async () => {
   const inventory = await stripe.products.list({
     expand: ['data.default_price'],
     limit: 16
@@ -14,9 +13,9 @@ export const getBooksLimit = async () => {
     apiKey: process.env.STRIPE_SECRET_KEY
   })
   return inventory.data.sort((a: BookProduct, b: BookProduct) => a.created - b.created).slice(0,8);
-}
+})
 
-export const getBooks = async () => {
+export const getBooks = cache(async () => {
   const inventory = await stripe.products.list({
     expand: ['data.default_price'],
     limit: 16
@@ -25,9 +24,9 @@ export const getBooks = async () => {
     apiKey: process.env.STRIPE_SECRET_KEY
   })
   return inventory.data.sort((a: BookProduct, b: BookProduct) => a.created - b.created);
-}
+})
 
-export const getBook = async (id: string) => {
+export const getBook = cache(async (id: string) => {
   const inventory = await stripe.products.retrieve(id,
   {
     expand: ['default_price']  
@@ -36,9 +35,9 @@ export const getBook = async (id: string) => {
     apiKey: process.env.STRIPE_SECRET_KEY
   })
   return inventory
-}
+})
 
-export const getRelatedBooks = async (id: string) => {
+export const getRelatedBooks = cache(async (id: string) => {
   const inventory = await stripe.products.list({
     expand: ['data.default_price'],
     limit: 16
@@ -47,9 +46,9 @@ export const getRelatedBooks = async (id: string) => {
     apiKey: process.env.STRIPE_SECRET_KEY
   })
   return inventory.data.filter((book: BookProduct) => book.id !== id).sort((a: BookProduct, b: BookProduct) => b.metadata.rating - a.metadata.rating).slice(0, 4);
-}
+})
 
-export const getDiscountedBooks = async () => {
+export const getDiscountedBooks = cache(async () => {
   const inventory = await stripe.products.list({
     expand: ['data.default_price'],
     limit: 16
@@ -58,12 +57,4 @@ export const getDiscountedBooks = async () => {
     apiKey: process.env.STRIPE_SECRET_KEY
   })
   return inventory.data.filter((book: BookProduct) => book.metadata.originalPrice).sort((a: BookProduct, b: BookProduct) => b.created - a.created).slice(0,4);
-}
-
-// Supabase
-
-export const createServerSupabaseClient = () => {
-  const cookieStore = cookies()
-  return createServerComponentClient({ cookies: () => cookieStore })
-}
-
+})

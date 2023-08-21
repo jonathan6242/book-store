@@ -9,7 +9,6 @@ import Reviews from "@/app/components/Reviews";
 import ReviewForm from "@/app/components/ReviewForm";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers"
-import DynamicRating from "@/app/components/DynamicRating";
 
 async function BookPage({ params }: { params: { id: string } }) {
   const cookieStore = cookies();
