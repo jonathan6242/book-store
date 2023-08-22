@@ -15,7 +15,7 @@ function DynamicRating() {
           size="large"
         />
       ) : (
-        <div className="h-4 w-24 mb-6 animated-bg"></div>
+        <div className="h-6 w-24 mb-6 animated-bg"></div>
       )}
     </>
   );
