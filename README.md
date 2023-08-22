@@ -1,6 +1,6 @@
 # BestBooks
 
-![BestBooks](https://www.jonathanfwong.com/assets/bestbooks2.PNG "ViewTube")
+![BestBooks](https://www.jonathanfwong.com/assets/bestbooks2.png "BestBooks")
 
 ## About
 BestBooks is an e-commerce book store with complete payment integration and many other features.
