@@ -10,7 +10,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.16",
     "@heroicons/react": "^2.0.18",
-    "@stripe/stripe-js": "^2.0.0",
+    "@stripe/stripe-js": "^2.1.0",
     "@supabase/auth-helpers-nextjs": "latest",
     "@supabase/supabase-js": "latest",
     "@types/node": "20.4.8",

@@ -8,12 +8,15 @@ function DynamicRating() {
   return (
     <>
       {rating !== -1 ? (
-        <Rating
-          rating={
-            (rating || 0)
-          }
-          size="large"
-        />
+        <div className="flex items-center gap-2">
+          <Rating
+            rating={
+              (rating || 0)
+            }
+            size="large"
+          />
+          <span className="leading-3 mb-6">{rating.toFixed(1)}</span>
+        </div>
       ) : (
         <div className="h-6 w-24 mb-6 animated-bg"></div>
       )}

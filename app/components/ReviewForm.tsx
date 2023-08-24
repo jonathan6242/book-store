@@ -5,6 +5,7 @@ import { useParams } from "next/navigation";
 import { v4 as uuidv4 } from "uuid"
 import { toast } from "react-hot-toast";
 import supabase from "../(utils)/supabase";
+import { useCountStore } from "../(utils)/countStore";
 
 function ReviewForm() {
   const { id: productId } = useParams();
@@ -18,7 +19,6 @@ function ReviewForm() {
     const id = toast.loading("Submitting review...", {
       position: 'bottom-center'
     })
-    console.log(uuidv4())
     const { error } = await supabase
       .from("reviews")
       .insert({
@@ -44,7 +44,6 @@ function ReviewForm() {
     setEmail("");
     setName("");
     setRating(0);
-    console.log(rating, review, name, email);
   }
 
   return (
@@ -95,7 +94,6 @@ function ReviewForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             className="border resize-none p-2 bg-neutral-100"
-            required
           />
         </div>
       </div>

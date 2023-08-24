@@ -13,16 +13,13 @@ export async function POST(request: Request) {
       expand: ["data.default_price"],
       limit: 16
     });
-    const products = inventory.data.map((product: Product) => {
-      const price = product.default_price;
-      return {
-        currency: price.currency,
-        id: product.id,
-        name: product.name,
-        price: price.unit_amount,
-        image: product.images[0],
-      };
-    });
+    const products = inventory.data.map((product: Product) => ({
+      currency: product.default_price.currency,
+      id: product.id,
+      name: product.name,
+      price: product.default_price.unit_amount,
+      image: product.images[0]
+    }));
 
     // Validate products in cart with all products
     const lineItems = validateCartItems(products, cartDetails);

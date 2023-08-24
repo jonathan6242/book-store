@@ -15,7 +15,7 @@ function Footer() {
         {/* Links */}
         <div className="flex items-center gap-8">
           <Link href='/' className="hover:underline underline-offset-4">Home</Link>
-          <Link href='/about' className="cursor-not-allowed">About</Link>
+          <Link href='/' className="cursor-not-allowed">About</Link>
           <Link href='/books' className="hover:underline underline-offset-4">Books</Link>
           <Link href='/cart' className="hover:underline underline-offset-4">Cart</Link>
         </div>

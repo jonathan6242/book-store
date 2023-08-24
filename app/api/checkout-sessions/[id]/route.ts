@@ -6,10 +6,7 @@ export async function GET(request: Request, { params }: { params: { id: string }
 
   try {
     const session = await stripe.checkout.sessions.retrieve(
-      id,
-      {
-        apiKey: process.env.STRIPE_SECRET_KEY
-      }
+      id
     )  
     return NextResponse.json(session, { status: 200 })
   } catch (error: any) {
