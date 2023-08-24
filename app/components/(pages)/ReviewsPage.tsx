@@ -9,7 +9,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 function ReviewsPage({ name }: { name: string }) {
-  const booksPerPage = 4;
+  const booksPerPage = 3;
 
   const supabase = createClientComponentClient();
   const { id: productId } = useParams();
